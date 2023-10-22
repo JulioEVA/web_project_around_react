@@ -3,8 +3,8 @@ import PopupWithForm from "./PopupWithForm";
 import React from "react";
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
-  const [description, setDescription] = React.useState("");
   const currentUser = React.useContext(CurrentUserContext);
+  const [description, setDescription] = React.useState(currentUser.about);
   /**
    * Updates the value of the state variable description whenever the about-input changes.
    * @param {*} e The change event
@@ -53,7 +53,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           className="input"
           type="text"
           placeholder="Acerca de mí"
-          value={currentUser.about}
+          defaultValue={description}
         />
         <span className={`form__input-error about-input-error text`}></span>
       </PopupWithForm>

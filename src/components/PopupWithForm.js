@@ -13,9 +13,10 @@ function PopupWithForm({
   saveButtonText,
   onSubmit,
 }) {
-  const [name, setName] = React.useState("");
   // Suscripción al contexto
   const currentUser = React.useContext(CurrentUserContext);
+  const [name, setName] = React.useState("");
+
   const inputRef = useRef(null);
   /**
    * Updates the value of the state variable name whenever the input changes.
@@ -69,7 +70,7 @@ function PopupWithForm({
             className="input"
             type={inputType}
             placeholder={placeholder}
-            value={inputId.includes("name-input") ? name : ""}
+            defaultValue={inputId.includes("name-input") ? name : ""}
           />
           <span className={`form__input-error ${inputId}-error text`}></span>
           {children}
